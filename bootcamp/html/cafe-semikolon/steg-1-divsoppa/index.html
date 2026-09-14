@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <title>Café Semikolon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Den här sidan fungerar, men den består bara av div:ar och säger ingenting om vad innehållet är.
+  Din uppgift: bygg om den med element som betyder något. Rör inte style.css, det är HTML:en som ska byggas om. -->
+
+  <div class="toppen">
+    <div class="logga">Café Semikolon</div>
+    <div class="lankar">
+      <a href="#meny">Meny</a>
+      <a href="#oppettider">Öppettider</a>
+      <a href="#nyhetsbrev">Nyhetsbrev</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="stor-text">Kaffe för dig som glömt semikolonet</div>
+    <div class="liten-text">Ett litet kafé på Sundbybergsgatan. Nybryggt, nybakat och gott om eluttag.</div>
+    <div class="knapp"><a href="#meny">Se menyn</a></div>
+  </div>
+
+  <div class="innehall">
+
+    <div id="meny" class="block">
+      <div class="rubrik">Menyn</div>
+
+      <div class="kort">
+        <img src="../bilder/kaffe.jpg">
+        <div class="kort-rubrik">Bryggkaffe</div>
+        <div class="pris">32 kr</div>
+        <div>Ljusrostat, bryggt på timmen. Påtår ingår.</div>
+      </div>
+
+      <div class="kort">
+        <img src="../bilder/cortado.jpg">
+        <div class="kort-rubrik">Cortado</div>
+        <div class="pris">45 kr</div>
+        <div>Espresso och lika delar varm mjölk. Serveras i glas.</div>
+      </div>
+
+      <div class="kort">
+        <img src="../bilder/bulle.jpg">
+        <div class="kort-rubrik">Kanelbulle</div>
+        <div class="pris">38 kr</div>
+        <div>Bakad på morgonen. Slut när den är slut.</div>
+      </div>
+    </div>
+
+    <div id="oppettider" class="block">
+      <div class="rubrik">Öppettider</div>
+      <div>Måndag till fredag: 07 till 18</div>
+      <div>Lördag: 09 till 16</div>
+      <div>Söndag: stängt</div>
+    </div>
+
+    <div class="sidoruta">
+      <div class="rubrik-liten">Dagens tips</div>
+      <div>Kom före tio. Då är bullarna nybakade och hörnbordet ledigt.</div>
+    </div>
+
+    <div id="nyhetsbrev" class="block">
+      <div class="rubrik">Nyhetsbrev</div>
+      <div>En gång i månaden, aldrig oftare.</div>
+      <input type="text" placeholder="Din e-post">
+      <div class="knapp" onclick="alert('Tack!')">Skicka</div>
+    </div>
+
+  </div>
+
+  <div class="botten">
+    <div>Café Semikolon, Sundbybergsgatan 1</div>
+    <div>hej@cafesemikolon.se</div>
+  </div>
+
+</body>
+</html>

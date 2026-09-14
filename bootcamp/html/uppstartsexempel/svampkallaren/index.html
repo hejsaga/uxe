@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Den här raden gör att sidan skalar rätt i en mobil. Utan den ser allt pyttelitet ut. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Svampkällaren, färsk svamp odlad i stan</title>
+
+  <!-- Typsnitt hämtade från Google Fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- All CSS ligger inuti style här i head. Senare i kursen flyttar vi ut den till en egen fil. -->
+  <style>
+    /* Färgerna sparas som variabler en gång, så vi kan byta tema på ett ställe. */
+    :root {
+      --morker: #2b1f2b;
+      --ljus: #ede9ee;
+      --vit: #fbfafb;
+      --accent: #7a4a6b;
+      --tan: #d8b9a0;
+    }
+
+    /* Den här regeln gäller hela sidan. */
+    body {
+      margin: 0;
+      background-color: var(--ljus);
+      color: var(--morker);
+      font-family: "Karla", Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* Rubrikerna får det andra typsnittet och sitter tätare ihop. */
+    h1,
+    h2,
+    h3 {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 600;
+      line-height: 1.05;
+      margin: 0 0 16px 0;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    /* En klass vi återanvänder för att hålla innehållet i mitten och inte för brett. */
+    .innehall {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Toppen av sidan. display flex lägger saker på samma rad. */
+    .topp {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      background-color: var(--morker);
+      color: var(--ljus);
+    }
+
+    .logotyp {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 20px;
+    }
+
+    .topp a {
+      color: var(--tan);
+    }
+
+    .hero {
+      background-color: var(--morker);
+      color: var(--ljus);
+      padding: 40px 0 72px 0;
+    }
+
+    /* font-size i rem betyder gånger sidans grundstorlek. 3.4rem blir alltså stort. */
+    .hero h1 {
+      font-size: 3.4rem;
+      margin-bottom: 24px;
+    }
+
+    /* En tunn linje under rubriken istället för mer text. */
+    .strecket {
+      width: 64px;
+      height: 3px;
+      background-color: var(--tan);
+      margin-bottom: 24px;
+    }
+
+    .knapp {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 20px;
+      border: 2px solid var(--tan);
+      border-radius: 4px;
+      background-color: transparent;
+      color: var(--ljus);
+      font-family: "Karla", Helvetica, sans-serif;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    /* hover gäller när musen ligger över knappen. */
+    .knapp:hover {
+      background-color: var(--tan);
+      color: var(--morker);
+    }
+
+    /* Den här klassen lägger vi till och tar bort med JavaScript längst ner i filen. */
+    .gomd {
+      display: none;
+    }
+
+    .skord {
+      margin-top: 24px;
+      padding: 16px 20px;
+      border-left: 3px solid var(--tan);
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    section {
+      padding: 56px 0;
+    }
+
+    /* Korten ligger på rad, men wrap gör att de hoppar ner när det blir trångt. */
+    .sorter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    /* flex 1 betyder att korten delar bredden lika. 200px är minsta bredd. */
+    .sorter li {
+      flex: 1 1 200px;
+      background-color: var(--vit);
+      padding: 20px;
+      border-radius: 4px;
+    }
+
+    .pris {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .fot {
+      background-color: var(--morker);
+      color: var(--ljus);
+      padding: 32px 0;
+      font-size: 16px;
+    }
+
+    .fot a {
+      color: var(--tan);
+    }
+
+    /* Allt som klickas eller tabbas till ska ha en tydlig ram. Viktigt för tillgänglighet. */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--tan);
+      outline-offset: 2px;
+    }
+
+    /* En media query. Reglerna här inne gäller bara på skärmar smalare än 600px. */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .topp {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- header, nav, main, section och footer är vanliga taggar som beskriver vad delen är. -->
+  <header class="topp">
+    <span class="logotyp">Svampkällaren</span>
+    <nav>
+      <a href="about-us.html">Om oss</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <div class="innehall">
+        <h1>Vi odlar svamp i en källare och cyklar ut den samma dag</h1>
+        <div class="strecket"></div>
+        <p>
+          Fyra pallar, en luftfuktare och ungefär trettio kilo ostronskivling i veckan.
+          Du beställer på söndag och hämtar på torsdag, tolv trappsteg ner från gatan.
+        </p>
+        <!-- Knappen gör ingenting av sig själv. JavaScript längst ner ger den ett jobb. -->
+        <button class="knapp" id="skordKnapp">Visa veckans skörd</button>
+
+        <div class="skord gomd" id="skordText">
+          <p>Den här veckan: 26 kilo ostronskivling, 9 kilo blå ostronskivling och 4 kilo shiitake. Nästa plockning sker på onsdag morgon.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="innehall">
+      <h2>Det vi odlar</h2>
+      <p>Tre sorter året runt. Ingen av dem har rest längre än fyra kilometer.</p>
+
+      <ul class="sorter">
+        <li>
+          <h3>Ostronskivling</h3>
+          <p>Mild och lite nötig. Steks hård i het panna, mycket smör, salt på slutet.</p>
+          <p class="pris">120 kr per kilo</p>
+        </li>
+        <li>
+          <h3>Blå ostronskivling</h3>
+          <p>Samma sort men blågrå och fastare. Håller formen i en gryta.</p>
+          <p class="pris">140 kr per kilo</p>
+        </li>
+        <li>
+          <h3>Shiitake</h3>
+          <p>Kraftig och nästan köttig. Vår mest envisa sort att få att växa.</p>
+          <p class="pris">210 kr per kilo</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="innehall">
+      <h2>Odla i din egen bokhylla</h2>
+      <p>
+        En odlingssäck är en påse halm som redan är full av svampmycel. Du ställer den
+        mörkt, sprutar vatten på den två gånger om dagen och två veckor senare växer det
+        svamp ut genom hålen. En säck ger ungefär ett kilo, i två eller tre skördar.
+      </p>
+      <p>
+        Vi säljer säckar för 190 kronor i källaren på torsdagar. Ta med en tygpåse,
+        halm dammar mer än man tror.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="fot">
+    <div class="innehall">
+      <p>Svampkällaren, Bondegatan 12, Stockholm. Öppet torsdagar 16 till 19.</p>
+      <p><a href="about-us.html">Läs om hur vi hamnade i en källare</a></p>
+    </div>
+  </footer>
+
+  <!-- JavaScript ligger sist i body, för då finns knappen redan när koden körs. -->
+  <script>
+    // Hämta de två sakerna vi vill jobba med. Vi letar upp dem med deras id.
+    const knapp = document.querySelector("#skordKnapp");
+    const text = document.querySelector("#skordText");
+
+    // "Lyssna efter klick på knappen, och kör den här koden när det händer."
+    knapp.addEventListener("click", function () {
+      // toggle tar bort klassen gomd om den finns, och lägger till den om den saknas.
+      text.classList.toggle("gomd");
+
+      // Byt även texten i knappen så den beskriver vad nästa klick gör.
+      if (text.classList.contains("gomd")) {
+        knapp.textContent = "Visa veckans skörd";
+      } else {
+        knapp.textContent = "Dölj veckans skörd";
+      }
+    });
+  </script>
+
+</body>
+
+</html>

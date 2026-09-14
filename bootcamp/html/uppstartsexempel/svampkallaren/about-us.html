@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Om oss, Svampkällaren</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+
+  <!--
+    Notera att den här CSS-koden är nästan exakt samma som i index.html.
+    Det är precis därför man till slut flyttar den till en egen fil, style.css,
+    och länkar in samma fil på båda sidorna. Vi gör det tillsammans senare.
+  -->
+  <style>
+    :root {
+      --morker: #2b1f2b;
+      --ljus: #ede9ee;
+      --vit: #fbfafb;
+      --accent: #7a4a6b;
+      --tan: #d8b9a0;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--ljus);
+      color: var(--morker);
+      font-family: "Karla", Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 600;
+      line-height: 1.05;
+      margin: 0 0 16px 0;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    .innehall {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .topp {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      background-color: var(--morker);
+      color: var(--ljus);
+    }
+
+    .logotyp {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 20px;
+    }
+
+    .topp a {
+      color: var(--tan);
+    }
+
+    .sidtitel {
+      background-color: var(--morker);
+      color: var(--ljus);
+      padding: 40px 0 56px 0;
+    }
+
+    .sidtitel h1 {
+      font-size: 2.8rem;
+    }
+
+    .strecket {
+      width: 64px;
+      height: 3px;
+      background-color: var(--tan);
+      margin-bottom: 24px;
+    }
+
+    section {
+      padding: 48px 0;
+    }
+
+    /* Tidslinjen är en riktig ordning av händelser, därför en numrerad lista. */
+    .tidslinje {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-left: 3px solid var(--tan);
+    }
+
+    .tidslinje li {
+      padding: 0 0 24px 20px;
+    }
+
+    .arstal {
+      display: block;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 22px;
+      color: var(--accent);
+    }
+
+    .folk {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .folk li {
+      flex: 1 1 220px;
+      background-color: var(--vit);
+      padding: 20px;
+      border-radius: 4px;
+    }
+
+    .knapp {
+      margin-top: 8px;
+      padding: 12px 20px;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      background-color: transparent;
+      color: var(--accent);
+      font-family: "Karla", Helvetica, sans-serif;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .knapp:hover {
+      background-color: var(--accent);
+      color: var(--vit);
+    }
+
+    .gomd {
+      display: none;
+    }
+
+    .fot {
+      background-color: var(--morker);
+      color: var(--ljus);
+      padding: 32px 0;
+      font-size: 16px;
+    }
+
+    .fot a {
+      color: var(--tan);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 600px) {
+      .sidtitel h1 {
+        font-size: 2rem;
+      }
+
+      .topp {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topp">
+    <!-- Länken går till index.html, en fil som ligger i samma mapp. -->
+    <span class="logotyp">Svampkällaren</span>
+    <nav>
+      <a href="index.html">Till startsidan</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="sidtitel">
+      <div class="innehall">
+        <h1>Tio personer, en källare och en luftfuktare som låter som ett flygplan</h1>
+        <div class="strecket"></div>
+        <p>Det började med en misslyckad odlingssäck i en garderob och blev vårt jobb.</p>
+      </div>
+    </div>
+
+    <section class="innehall">
+      <h2>Hur det gick till</h2>
+      <ol class="tidslinje">
+        <li>
+          <span class="arstal">2021</span>
+          Nadia köper en odlingssäck på en marknad, ställer den i garderoben och glömmer
+          bort den i tre veckor. Den överlever ändå och ger ett halvkilo svamp.
+        </li>
+        <li>
+          <span class="arstal">2022</span>
+          Vi odlar i badrummet. Grannarna undrar varför det luktar skogsdunge i trapphuset.
+          Första försäljningen sker till en restaurang som betalar i lunch.
+        </li>
+        <li>
+          <span class="arstal">2023</span>
+          Vi hyr ett gammalt cykelrum i en källare på Bondegatan. Fyra odlingspallar,
+          en luftfuktare och en väldigt lång förlängningssladd.
+        </li>
+        <li>
+          <span class="arstal">2025</span>
+          Trettio kilo i veckan, elva restauranger och en torsdagsförsäljning som mest
+          består av folk som bor i huset ovanför.
+        </li>
+      </ol>
+    </section>
+
+    <section class="innehall">
+      <h2>Vi som odlar</h2>
+      <ul class="folk">
+        <li>
+          <h3>Nadia Ferreira</h3>
+          <p>Sköter odlingen och substratet. Kan avgöra hur en skörd kommer att gå genom att lukta på en påse halm.</p>
+        </li>
+        <li>
+          <h3>Tobias Lund</h3>
+          <p>Levererar med cykelkärra och pratar med restaurangerna. Har tappat en låda shiitake i Slussen exakt en gång.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="innehall">
+      <h2>Hör av dig</h2>
+      <p>
+        Vill du beställa till en restaurang, eller bara veta om det är någon idé att
+        odla i din lägenhet? Skriv till oss.
+      </p>
+
+      <!-- Vi gömmer adressen bakom en knapp så att skräppostrobotar inte hittar den lika lätt. -->
+      <button class="knapp" id="epostKnapp">Visa e-postadress</button>
+      <p class="gomd" id="epostText">hej@svampkallaren.example</p>
+    </section>
+
+  </main>
+
+  <footer class="fot">
+    <div class="innehall">
+      <p>Svampkällaren, Bondegatan 12, Stockholm. Öppet torsdagar 16 till 19.</p>
+      <p><a href="index.html">Tillbaka till startsidan</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Samma mönster som på startsidan: hitta elementen, lyssna på klick, ändra en klass.
+    const epostKnapp = document.querySelector("#epostKnapp");
+    const epostText = document.querySelector("#epostText");
+
+    epostKnapp.addEventListener("click", function () {
+      // Här tar vi bara bort klassen. Adressen ska inte gömmas igen.
+      epostText.classList.remove("gomd");
+
+      // När adressen syns behövs inte knappen längre, så vi gömmer den.
+      epostKnapp.classList.add("gomd");
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- Allt som står mellan såna här tecken är en kommentar. Webbläsaren struntar i det. -->
+<html lang="sv">
+
+<head>
+  <!-- Utan den här raden blir å, ä och ö till konstiga frågetecken. Testa att ta bort den. -->
+  <meta charset="UTF-8">
+  <!-- title syns i fliken högst upp i webbläsaren, aldrig på själva sidan. -->
+  <title>Min allra första sida</title>
+</head>
+
+<body>
+
+  <!-- h1 är sidans huvudrubrik. Ha bara en per sida. -->
+  <h1>Din dator kan skriva ut text i en browser!</h1>
+
+  <p>
+    Det här är ren HTML. Ingen design, ingen CSS, inget krusiduller. Webbläsaren har
+    bestämt precis allt själv: svart text, vit bakgrund, ett typsnitt som ser ut som
+    en lärobok från 1998 och den där breda marginalen som ingen bett om.
+  </p>
+
+  <p>
+    <strong>Och ändå funkar sidan.</strong> Den laddar på nolltid, den funkar i varje
+    webbläsare som finns, den funkar på en telefon som hålls på tvären och den funkar
+    för någon som lyssnar på sidan istället för att titta på den. Det är faktiskt
+    ganska svårt att bygga något sämre än det här. Vi kommer att lyckas med det senare
+    i kursen, när vi lärt oss CSS.
+  </p>
+
+  <!-- hr ritar en linje. Den betyder "här byter vi ämne". -->
+  <hr>
+
+  <h2>Vad du tittar på just nu</h2>
+
+  <p>Varje sak på den här sidan är ett <em>element</em>. Ett element ser oftast ut så här:</p>
+
+  <!-- code visar text som är kod. Webbläsaren gör den smalare och lite mindre. -->
+  <p><code>&lt;p&gt;Text som ska stå i en paragraf&lt;/p&gt;</code></p>
+
+  <p>
+    Först en starttagg, sen innehållet, sen en sluttagg med snedstreck. Webbläsaren
+    läser filen uppifrån och ner och bygger sidan i samma ordning som du skrivit den.
+    Flyttar du ett stycke i filen så flyttar det sig på sidan.
+  </p>
+
+  <h2>Taggar du har sett på tre minuter</h2>
+
+  <ul>
+    <li><code>h1</code> och <code>h2</code> för rubriker</li>
+    <li><code>p</code> för ett stycke text</li>
+    <li><code>strong</code> för det som är viktigt</li>
+    <li><code>em</code> för det som ska betonas</li>
+    <li><code>ul</code> och <code>li</code> för en lista, precis den du läser
+      <ul>
+        <li>listor kan ligga inuti andra listor</li>
+        <li>ungefär hur djupt som helst, men snälla nej</li>
+      </ul>
+    </li>
+    <li><code>hr</code> för en linje</li>
+    <li><code>a</code> för en länk</li>
+  </ul>
+
+  <h2>Så här går det till när du öppnar filen</h2>
+
+  <!-- ol är en numrerad lista. Numren kommer automatiskt, skriv dem inte själv. -->
+  <ol>
+    <li>Du dubbelklickar på filen.</li>
+    <li>Webbläsaren läser texten i filen, tecken för tecken.</li>
+    <li>Den letar efter taggar och bygger ett träd av allt den hittar.</li>
+    <li>Den ritar upp trädet på skärmen.</li>
+    <li>Den ser din stavfel och ritar upp det också, utan att säga något.</li>
+  </ol>
+
+  <p>
+    Punkt fem är viktig. HTML klagar nästan aldrig. Glömmer du en sluttagg så gissar
+    webbläsaren vad du menade och kör vidare. Det är både det bästa och det mest
+    irriterande med språket.
+  </p>
+
+  <hr>
+
+  <h2>Prova själv</h2>
+
+  <p>Öppna den här filen i din kodeditor och gör de här sakerna, en åt gången. Spara och ladda om sidan efter varje.</p>
+
+  <ol>
+    <li>Byt ut texten i <code>h1</code> mot ditt eget namn.</li>
+    <li>Lägg till ett nytt <code>p</code> längst ner där du skriver vad du åt till frukost.</li>
+    <li>Ta bort en sluttagg någonstans och se om du märker någon skillnad.</li>
+    <li>Ta bort raden med <code>meta charset</code> och ladda om. Titta på å, ä och ö.</li>
+    <li>Lägg tillbaka den. Ångra känns bättre än att förstå varför.</li>
+  </ol>
+
+  <blockquote>
+    <p>
+      Den som säger att HTML inte är programmering får gärna förklara varför en
+      glömd sluttagg kan flytta hela sidfoten in i en rubrik.
+    </p>
+  </blockquote>
+
+  <h2>Vill du läsa mer</h2>
+
+  <p>
+    Slå upp taggar på <a href="https://developer.mozilla.org/sv-SE/docs/Web/HTML">MDN</a>.
+    Det är dokumentationen som proffsen faktiskt använder, inte bara nybörjare.
+  </p>
+
+  <!-- small används för finstilt, till exempel en liten notis längst ner. -->
+  <p><small>Den här sidan innehåller noll rader CSS och noll rader JavaScript. Nästa fil ser lite annorlunda ut.</small></p>
+
+</body>
+
+</html>

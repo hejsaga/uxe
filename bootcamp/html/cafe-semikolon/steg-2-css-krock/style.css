@@ -1,0 +1,103 @@
+/* CSS-verkstad: tre saker blir inte som det var tänkt.
+   Hitta orsaken i DevTools innan du ändrar något.
+   Regel: ingen av lösningarna får använda !important. */
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  color: #2b2f2f;
+}
+
+/* ---------------------------------------------------------------
+   FEL 1. Rubriken i hero ska vara rosa (#ff7890). Den är svart.
+   Båda reglerna nedan finns, och båda pekar på samma element.
+   Varför vinner den ena?
+   --------------------------------------------------------------- */
+#sidrubrik { color: #2b2f2f; }
+.kampanj { color: #ff7890; }
+
+/* ---------------------------------------------------------------
+   FEL 2. Korten ska vara exakt lika breda som listan de ligger i.
+   I stället sticker de ut utanför kanten.
+   Titta på box-modellen i DevTools: vad räknas in i bredden?
+   --------------------------------------------------------------- */
+.kortlista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 20rem;
+}
+
+.kort {
+  width: 20rem;
+  padding: 1rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+/* ---------------------------------------------------------------
+   FEL 3. Priset ska vara fetstilt. Regeln nedan händer ingenting med.
+   Den står inte ens överstruken i DevTools. Den står inte alls.
+   Vad betyder det?
+   --------------------------------------------------------------- */
+.priset { font-weight: bold; }
+
+/* ---------------------------------------------------------------
+   BONUS. Någon har löst ett gammalt problem med !important,
+   och nu går det inte att ge korten luft mellan styckena.
+   Ta bort raden och lös det på riktigt i stället.
+   --------------------------------------------------------------- */
+p { margin: 0 !important; }
+
+.kort p { margin-bottom: 0.5rem; }
+
+/* Resten är färdig och behöver du inte röra. */
+.toppen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #d4d4d4;
+}
+.logga { font-weight: bold; font-size: 1.25rem; }
+.lankar { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; }
+.lankar a { color: #2b2f2f; }
+
+.hero { padding: 3rem 2rem; background: #f8f9f9; }
+.hero h1 { font-size: 2.5rem; line-height: 1.1; margin: 0; }
+.ingress { max-width: 45ch; }
+
+.knapp {
+  display: inline-block;
+  background: #2b2f2f;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 1.5rem;
+}
+
+.innehall { padding: 2rem; }
+.block { margin-bottom: 3rem; }
+h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+h3 { font-size: 1.1rem; margin: 0.5rem 0 0.25rem; }
+.kort img { width: 100%; height: 8rem; background: #f8f9f9; border-radius: 4px; }
+
+.tider dt { font-weight: bold; }
+.tider dd { margin-left: 0; }
+
+.sidoruta { background: #f8f9f9; padding: 1rem; margin-bottom: 3rem; }
+.sidoruta h2 { font-size: 1.25rem; }
+
+label { display: block; }
+input { padding: 0.5rem; border: 1px solid #d4d4d4; border-radius: 4px; }
+button { padding: 0.6rem 1.2rem; background: #2b2f2f; color: #fff; border: none; border-radius: 4px; }
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid #4c64ff;
+  outline-offset: 2px;
+}
+
+.botten { padding: 2rem; border-top: 1px solid #d4d4d4; }

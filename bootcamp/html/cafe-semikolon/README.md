@@ -44,13 +44,13 @@ du hämtar uppdateringar, och då blir det din första konflikt i Git. Den spara
 | Mapp | När | Vad |
 |------|-----|-----|
 | `steg-1-divsoppa` | Tisdag | Sidan byggd helt av div:ar. Den här bygger ni om. |
-| `steg-2-divsoppa-facit` | Tisdag | Samma sida med semantiska element, alt-texter och label. |
-| `steg-3-css-krock` | Tisdag | Tre inbyggda CSS-fel och ett !important som ska bort. |
-| `steg-3-css-krock-facit` | Tisdag | Rättad CSS med förklaring vid varje fix. |
-| `steg-4-fasta-bredder` | Onsdag | Samma sida med pixelbredder och utan meta viewport. Går sönder vid 375 px. |
-| `steg-5-fasta-bredder-facit` | Onsdag | Mobile-first med max-width, clamp och en media query. Utan flexbox och grid. |
-| `steg-6-flex-och-grid` | Torsdag, egenstudier | Guidad uppgift. Läs `UPPGIFT.md` i mappen. |
-| `steg-6-flex-och-grid-facit` | Torsdag | Färdig lösning. Titta efteråt. |
+| `steg-1-divsoppa-lösningsförslag` | Tisdag | Samma sida med semantiska element, alt-texter och label. |
+| `steg-2-css-krock` | Tisdag | Tre inbyggda CSS-fel och ett !important som ska bort. |
+| `steg-2-css-krock-lösningförslag` | Tisdag | Rättad CSS med förklaring vid varje fix. |
+| `steg-3-fasta-bredder` | Onsdag | Samma sida med pixelbredder och utan meta viewport. Går sönder vid 375 px. |
+| `steg-3-fasta-bredder-lösningsförslag` | Onsdag | Mobile-first med max-width, clamp och en media query. Utan flexbox och grid. |
+| `steg-4-flex-och-grid` | Torsdag, egenstudier | Guidad uppgift. Läs `UPPGIFT.md` i mappen. |
+| `steg-4-flex-och-grid-lösningsförslag` | Torsdag | Färdig lösning. Titta efteråt. |
 | `mitt-arbete` | Hela veckan | Din mapp. |
 | `bilder` | Delas av alla steg.
 

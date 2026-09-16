@@ -1,4 +1,8 @@
-/* Den här CSS:en är lösningsförslaget kring att göra café semikolon responsiv. */
+/* Den här CSS:en är lösningsförslaget kring att göra café semikolon responsiv.
+
+   Allt som ska skala är angivet i rem: typografi, marginaler och padding.
+   Kvar i px är bara det som inte ska skala, precis som vi sa på slidesen:
+   ramar, border-radius och fokusmarkeringen. */
 
 * {
   box-sizing: border-box;
@@ -37,8 +41,8 @@ body {
 
 .logga {
   font-weight: bold;
-  font-size: 20px;
-  margin: 0 0 8px;
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
 }
 
 .lankar {
@@ -49,7 +53,7 @@ body {
 
 .lankar li {
   display: inline-block;
-  margin-right: 16px;
+  margin-right: 1rem;
 }
 
 .lankar a {
@@ -57,37 +61,36 @@ body {
 }
 
 .hero h1 {
-  font-size: 56px;
+  font-size: 3.5rem;
   line-height: 1.1;
   margin: 0;
 }
 
 .ingress {
-  margin: 8px 0 24px;
+  margin: 0.5rem 0 1.5rem;
 }
 
 .knapp {
   display: inline-block;
   background: #2b2f2f;
   color: #fff;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   border-radius: 4px;
   text-decoration: none;
 }
 
 .block {
-  margin-bottom: 48px;
+  margin-bottom: 3rem;
 }
 
 h2 {
-  font-size: 28px;
-  margin-bottom: 16px;
-  color: green;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
-  font-size: 18px;
-  margin: 8px 0 4px;
+  font-size: 1.125rem;
+  margin: 0.5rem 0 0.25rem;
 }
 
 .kortlista {
@@ -105,7 +108,6 @@ h3 {
   border: 1px solid #d4d4d4;
   border-radius: 6px;
   margin-bottom: 1rem;
-  /* margin: 2rem; */
 }
 
 .kort img {
@@ -116,7 +118,7 @@ h3 {
 }
 
 .kort p {
-  margin: 0 0 8px;
+  margin: 0 0 0.5rem;
 }
 
 .tider dt {
@@ -129,12 +131,12 @@ h3 {
 
 .sidoruta {
   background: #f8f9f9;
-  padding: 16px;
-  margin-bottom: 48px;
+  padding: 1rem;
+  margin-bottom: 3rem;
 }
 
 .sidoruta h2 {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 label {
@@ -143,18 +145,17 @@ label {
 
 input {
   max-width: 20rem;
-  padding: 8px;
+  padding: 0.5rem;
   border: 1px solid #d4d4d4;
   border-radius: 4px;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   background: #2b2f2f;
   color: #fff;
   border: none;
   border-radius: 4px;
-  
 }
 
 a:focus-visible,
@@ -164,7 +165,7 @@ input:focus-visible {
   outline-offset: 2px;
 }
 
-@media (max-width: 300px) {
+@media (max-width: 18.75rem) {
   button {
     margin-top: 1rem;
   }

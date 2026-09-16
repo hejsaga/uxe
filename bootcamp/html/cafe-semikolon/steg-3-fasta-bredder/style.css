@@ -4,20 +4,17 @@
    Öppna sidan och dra ihop fönstret till 375 px. Den går att dra i sidled,
    för innehållet är bredare än skärmen.
 
-   FÖRMIDDAGENS UPPGIFT
    Laga det med en media query. Lägg den längst ner i filen och skriv in nya,
    mindre bredder för det som inte får plats. Rör ingenting utanför queryn,
    de fasta bredderna ska stå kvar.
 
    Kontrollera sedan hur sidan ser ut på 600 px och på 800 px.
 
-   EFTERMIDDAGENS UPPGIFT
+   NÄR NI SKRIVIT MEDIA QUERIES OCH SETT DESS EFFEKTER
    Vi börjar om från den här filen igen, men löser det på ett annat sätt.
-   Spara därför det ni skriver i dag, vi ska jämföra.
+   Kommentera ut era media queries så att ni kan göra sidan responsiv.
 
-   Vi rör inte kortens placering förrän i sista passet. De ligger under
-   varandra, och det gör de även på en bred skärm. */
-
+   Slutligen ska ni göra så att listan med kort blir ett flex-element. */
   
 * {
   box-sizing: border-box;

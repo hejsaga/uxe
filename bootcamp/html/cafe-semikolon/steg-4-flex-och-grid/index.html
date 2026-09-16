@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Café Semikolon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Samma HTML som i steg 2 och 3. Allt annat som skiljer ligger i style.css.
+       Responsivitet är nästan uteslutande ett CSS-jobb, förutsatt att
+       strukturen är vettig från början. -->
+
+  <header class="toppen">
+    <p class="logga">Café Semikolon</p>
+    <nav>
+      <ul class="lankar">
+        <li><a href="#meny">Meny</a></li>
+        <li><a href="#oppettider">Öppettider</a></li>
+        <li><a href="#nyhetsbrev">Nyhetsbrev</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <h1>Kaffe för dig som glömt semikolonet</h1>
+      <p class="ingress">Ett litet kafé på Sundbybergsgatan. Nybryggt, nybakat och gott om eluttag.</p>
+      <a class="knapp" href="#meny">Se menyn</a>
+    </section>
+
+    <div class="innehall">
+
+      <section id="meny" class="block">
+        <h2>Menyn</h2>
+
+        <ul class="kortlista">
+          <li>
+            <article class="kort">
+              <img src="../bilder/kaffe.jpg" alt="En kopp svart bryggkaffe på ett trägolvbord">
+              <h3>Bryggkaffe</h3>
+              <p class="pris">32 kr</p>
+              <p>Ljusrostat, bryggt på timmen. Påtår ingår.</p>
+            </article>
+          </li>
+          <li>
+            <article class="kort">
+              <img src="../bilder/cortado.jpg" alt="En cortado serverad i litet glas">
+              <h3>Cortado</h3>
+              <p class="pris">45 kr</p>
+              <p>Espresso och lika delar varm mjölk. Serveras i glas.</p>
+            </article>
+          </li>
+          <li>
+            <article class="kort">
+              <img src="../bilder/bulle.jpg" alt="En kanelbulle med pärlsocker på ett fat">
+              <h3>Kanelbulle</h3>
+              <p class="pris">38 kr</p>
+              <p>Bakad på morgonen. Slut när den är slut.</p>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section id="oppettider" class="block">
+        <h2>Öppettider</h2>
+        <dl class="tider">
+          <dt>Måndag till fredag</dt>
+          <dd>07 till 18</dd>
+          <dt>Lördag</dt>
+          <dd>09 till 16</dd>
+          <dt>Söndag</dt>
+          <dd>Stängt</dd>
+        </dl>
+      </section>
+
+      <aside class="sidoruta">
+        <h2>Dagens tips</h2>
+        <p>Kom före tio. Då är bullarna nybakade och hörnbordet ledigt.</p>
+      </aside>
+
+      <section id="nyhetsbrev" class="block">
+        <h2>Nyhetsbrev</h2>
+        <p>En gång i månaden, aldrig oftare.</p>
+        <form>
+          <label for="epost">Din e-post</label>
+          <input type="email" id="epost" name="epost">
+          <button type="submit">Skicka</button>
+        </form>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="botten">
+    <p>Café Semikolon, Sundbybergsgatan 1</p>
+    <p><a href="mailto:hej@cafesemikolon.se">hej@cafesemikolon.se</a></p>
+  </footer>
+
+</body>
+</html>

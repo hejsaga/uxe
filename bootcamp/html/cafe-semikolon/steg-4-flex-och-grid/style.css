@@ -1,0 +1,257 @@
+/* Utgångsläge för torsdagens egenstudier. Det här är delar av resultatet från onsdagens
+   livekodning, så ni startar från samma ställe allihop, oavsett hur långt ni
+   själva hann i er egen kopia.
+
+   Sidan skalar nu. Ingenting är låst i pixlar och ingenting sticker ut på
+   375 px. Det som är kvar är placering: var saker ska ligga i förhållande till
+   varandra. Det löser varken max-width eller en brytpunkt.
+
+   Hela instruktionen står i UPPGIFT.md i den här mappen. Uppgifterna ligger
+   också utplacerade som kommentarer här nere vid rätt selektor.
+
+   Gör Flexbox Froggy och Grid Garden först. */
+
+/* 1. Border-box på allt. Då spräcker padding aldrig en bredd. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  color: #2b2f2f;
+}
+
+/* 2. max-width i stället för width.
+   Sidan får bli smalare, men aldrig bredare än läsbart. */
+.toppen,
+.hero,
+.innehall,
+.botten {
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+/* 3. Bilder skalar alltid med sin behållare. */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   UPPGIFT 2: Sidhuvudet.
+   Loggan till vänster, navigationen till höger, mitt för varandra i höjdled.
+   När det blir för smalt ska de hamna under varandra i stället för att
+   tryckas ihop. Skriv reglerna här.
+   ─────────────────────────────────────────────────────────────── */
+.toppen {
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.logga {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   UPPGIFT 1: Länkarna.
+   I rad med jämnt mellanrum i alla bredder, och de ska bryta rad själva när
+   de inte får plats. Börja här. När det fungerar: gå längst ner i filen och
+   ta bort regeln som gör samma sak i media queryn.
+   ─────────────────────────────────────────────────────────────── */
+.lankar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lankar li {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.lankar a {
+  color: #2b2f2f;
+}
+
+/* 4. Rubriken är 2rem i basen. Den blir större i media queryn längst ner,
+   för det är ett designval och inte något som behöver lagas. */
+.hero {
+  background: #f8f9f9;
+  padding-block: 2.5rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* 5. En maxbredd på texten. Långa rader är svårlästa, oavsett hur bred skärmen är. */
+.ingress {
+  max-width: 32rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.knapp {
+  display: inline-block;
+  background: #2b2f2f;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   UPPGIFT 6 (frivillig): Innehållet.
+   Få Öppettider och Dagens tips att stå bredvid varandra på en bred skärm,
+   medan Menyn och Nyhetsbrevet tar hela bredden. Allt under varandra på smal
+   skärm. Tips: två av reglerna hör hemma i media queryn längst ner.
+   ─────────────────────────────────────────────────────────────── */
+
+.block {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   UPPGIFT 4: Menykorten.
+   Ett rutnät som själv väljer antal kolumner. Tre kort på bred skärm, två på
+   surfplatta, ett på mobil, utan en enda media query.
+   I går löste ni samma sak med flexbox. Gör den här versionen med grid.
+   Testa sedan att lägga till ett fjärde kort i index.html och jämför hur de
+   två lösningarna beter sig på sista raden.
+   ─────────────────────────────────────────────────────────────── */
+.kortlista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kort {
+  padding: 1rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.kort img {
+  background: #f8f9f9;
+  border-radius: 4px;
+  aspect-ratio: 3 / 2;
+}
+
+.kort p {
+  margin: 0 0 0.5rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   UPPGIFT 5: Öppettiderna.
+   Dagarna i en vänsterspalt, tiderna i en högerspalt, i linje med varandra.
+   Vänsterspalten ska vara precis så bred som den längsta dagtexten kräver.
+   ─────────────────────────────────────────────────────────────── */
+.tider dt {
+  font-weight: bold;
+}
+
+.tider dd {
+  margin: 0 0 0.5rem;
+}
+
+.sidoruta {
+  background: #f8f9f9;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+
+.sidoruta h2 {
+  font-size: 1.25rem;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   UPPGIFT 3: Formuläret.
+   Fältet och knappen på samma rad när det finns plats, under varandra när det
+   inte finns. Fältet ska ta den plats som blir över. Knappen ska aldrig
+   krympa, texten på den ska alltid få plats.
+   ─────────────────────────────────────────────────────────────── */
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+input {
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.5rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: #2b2f2f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #4c64ff;
+  outline-offset: 2px;
+}
+
+.botten {
+  border-top: 1px solid #d4d4d4;
+}
+
+.botten p {
+  margin: 0 0 0.25rem;
+}
+
+/* 6. Brytpunkten ligger där layouten behöver den, inte vid en telefonmodell.
+   Angiven i rem så att den följer användarens textstorlek.
+
+   Räkna raderna här inne innan ni börjar, och räkna igen när ni är klara.
+   Det som ska vara kvar är designval: luft och rubrikstorlek. Allt som är
+   en lagning ska ha försvunnit. */
+@media (min-width: 40rem) {
+  .toppen,
+  .hero,
+  .innehall,
+  .botten {
+    padding-inline: 2rem;
+  }
+
+  /* Den här regeln ska bort när uppgift 1 fungerar. */
+  .lankar li {
+    display: inline-block;
+    margin: 0 1rem 0 0;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,180 @@
+/* Den här CSS:en är skriven av någon som bara testat i ett brett fönster.
+   Allt är angivet i pixlar och ingenting får ge efter.
+
+   Öppna sidan och dra ihop fönstret till 375 px. Den går att dra i sidled,
+   för innehållet är bredare än skärmen.
+
+   FÖRMIDDAGENS UPPGIFT
+   Laga det med en media query. Lägg den längst ner i filen och skriv in nya,
+   mindre bredder för det som inte får plats. Rör ingenting utanför queryn,
+   de fasta bredderna ska stå kvar.
+
+   Kontrollera sedan hur sidan ser ut på 600 px och på 800 px.
+
+   EFTERMIDDAGENS UPPGIFT
+   Vi börjar om från den här filen igen, men löser det på ett annat sätt.
+   Spara därför det ni skriver i dag, vi ska jämföra.
+
+   Vi rör inte kortens placering förrän i sista passet. De ligger under
+   varandra, och det gör de även på en bred skärm. */
+
+  
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  color: #2b2f2f;
+}
+
+.toppen {
+  width: 960px;
+  padding: 16px 32px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.logga {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.lankar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lankar li {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.lankar a {
+  color: #2b2f2f;
+}
+
+.hero {
+  width: 960px;
+  padding: 48px 32px;
+  background: #f8f9f9;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.ingress {
+  width: 600px;
+  margin: 8px 0 24px;
+}
+
+.knapp {
+  display: inline-block;
+  background: #2b2f2f;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.innehall {
+  width: 960px;
+  padding: 32px;
+}
+
+.block {
+  margin-bottom: 48px;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: green;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 8px 0 4px;
+}
+
+.kortlista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kort {
+  width: 340px;
+  padding: 16px;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.kort img {
+  width: 308px;
+  height: 140px;
+  background: #f8f9f9;
+  border-radius: 4px;
+}
+
+.kort p {
+  margin: 0 0 8px;
+}
+
+.tider dt {
+  font-weight: bold;
+}
+
+.tider dd {
+  margin-left: 0;
+}
+
+.sidoruta {
+  width: 700px;
+  background: #f8f9f9;
+  padding: 16px;
+  margin-bottom: 48px;
+}
+
+.sidoruta h2 {
+  font-size: 20px;
+}
+
+label {
+  display: block;
+}
+
+input {
+  width: 320px;
+  padding: 8px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #2b2f2f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #4c64ff;
+  outline-offset: 2px;
+}
+
+.botten {
+  width: 960px;
+  padding: 32px;
+  border-top: 1px solid #d4d4d4;
+}

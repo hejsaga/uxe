@@ -1,0 +1,97 @@
+/* Facit till CSS-verkstaden. Förklaringarna står vid varje fix. */
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  color: #2b2f2f;
+}
+
+/* FEL 1: specificitet.
+   Ett id (#sidrubrik) väger tyngre än en klass (.kampanj), oavsett
+   vilken regel som står sist i filen. Ordningen avgör bara när
+   specificiteten är lika.
+   Fix: låt bli att styra färg via id. Då vinner klassen. */
+.kampanj { color: #ff7890; }
+
+/* FEL 2: box-modellen.
+   Utan box-sizing räknas padding och border ovanpå width.
+   20rem + 2rem padding + 2px border blev bredare än listan.
+   Fix: border-box på allt, en gång, högst upp i filen.
+   Sätt den gärna i alla era projekt från och med nu. */
+* { box-sizing: border-box; }
+
+.kortlista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 20rem;
+}
+
+.kort {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+/* FEL 3: selektorn träffade ingenting.
+   Klassen i HTML heter pris, inte priset. En regel som inte matchar
+   syns inte alls i DevTools, till skillnad från en som förlorat.
+   Står din regel inte i Styles-panelen: kolla stavningen. */
+.pris { font-weight: bold; }
+
+/* BONUS: !important borta.
+   Problemet var egentligen att body-marginalerna behövde nollställas,
+   inte att alla p-element skulle sakna marginal. */
+.kort p { margin: 0 0 0.5rem; }
+
+/* Resten oförändrad. */
+.toppen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #d4d4d4;
+}
+.logga { font-weight: bold; font-size: 1.25rem; }
+.lankar { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; }
+.lankar a { color: #2b2f2f; }
+
+.hero { padding: 3rem 2rem; background: #f8f9f9; }
+.hero h1 { font-size: 2.5rem; line-height: 1.1; margin: 0; }
+.ingress { max-width: 45ch; }
+
+.knapp {
+  display: inline-block;
+  background: #2b2f2f;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 1.5rem;
+}
+
+.innehall { padding: 2rem; }
+.block { margin-bottom: 3rem; }
+h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+h3 { font-size: 1.1rem; margin: 0.5rem 0 0.25rem; }
+.kort img { width: 100%; height: 8rem; background: #f8f9f9; border-radius: 4px; }
+
+.tider dt { font-weight: bold; }
+.tider dd { margin-left: 0; }
+
+.sidoruta { background: #f8f9f9; padding: 1rem; margin-bottom: 3rem; }
+.sidoruta h2 { font-size: 1.25rem; }
+
+label { display: block; }
+input { padding: 0.5rem; border: 1px solid #d4d4d4; border-radius: 4px; }
+button { padding: 0.6rem 1.2rem; background: #2b2f2f; color: #fff; border: none; border-radius: 4px; }
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid #4c64ff;
+  outline-offset: 2px;
+}
+
+.botten { padding: 2rem; border-top: 1px solid #d4d4d4; }

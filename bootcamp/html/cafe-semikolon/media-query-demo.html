@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vad en media query gör</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;600;800&family=Sofia+Sans+Condensed:wght@700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --morkt: #2b2f2f;
+      --vitt: #ffffff;
+      --offvitt: #f8f9f9;
+      --linje: #d4d4d4;
+      --lblue: #6ec4e4;
+      --green: #afd75e;
+      --orange: #ffbe68;
+      --pink: #ff7890;
+      --blue: #4c64ff;
+      --bg: var(--vitt);
+      --text: var(--morkt);
+      --yta: var(--offvitt);
+      --kant: var(--linje);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #1c1f1f;
+        --text: #f2f4f4;
+        --yta: #262a2a;
+        --kant: #3d4242;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #1c1f1f;
+      --text: #f2f4f4;
+      --yta: #262a2a;
+      --kant: #3d4242;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Sofia Sans", "Segoe UI", system-ui, sans-serif;
+      line-height: 1.5;
+      padding: 1.25rem;
+    }
+
+    h1,
+    h2 {
+      font-family: "Sofia Sans Condensed", "Sofia Sans", system-ui, sans-serif;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+    }
+
+    .sida {
+      max-width: 62rem;
+      margin-inline: auto;
+    }
+
+    .lead {
+      margin: .35rem 0 1.25rem;
+      max-width: 38rem;
+    }
+
+    /* ---------- Mätaren ---------- */
+    .matare {
+      border: 2px solid var(--kant);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      background: var(--yta);
+      margin-bottom: 1.25rem;
+    }
+
+    .matare .siffror {
+      font-family: "Sofia Sans Condensed", "Sofia Sans", sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
+    .lage {
+      display: inline-block;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: .78rem;
+      padding: .3rem .7rem;
+      border-radius: 999px;
+      color: var(--morkt);
+      margin-bottom: .5rem;
+    }
+
+    .lage-smal {
+      background: var(--orange);
+    }
+
+    .lage-bred {
+      background: var(--lblue);
+      display: none;
+    }
+
+    .forklaring-bred {
+      display: none;
+    }
+
+    /* ---------- Demokomponenten ---------- */
+    .demo {
+      border: 2px dashed var(--kant);
+      border-radius: 10px;
+      padding: 1rem;
+      background: var(--yta);
+      margin-bottom: 1.5rem;
+    }
+
+    .demo>.etikett {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      opacity: .7;
+      margin-bottom: .6rem;
+    }
+
+    .kort {
+      background: var(--bg);
+      border: 1px solid var(--kant);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .kort h2 {
+      font-size: 1.3rem;
+      margin-bottom: .35rem;
+    }
+
+    .lankar {
+      list-style: none;
+      margin: .75rem 0 0;
+      padding: 0;
+    }
+
+    .lankar li {
+      display: block;
+      margin-bottom: .4rem;
+    }
+
+    .lankar a {
+      display: inline-block;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 2px solid var(--green);
+      padding-bottom: 1px;
+    }
+
+    /* ---------- Koden ---------- */
+    .kodrutor {
+      display: block;
+    }
+
+    pre {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: .82rem;
+      line-height: 1.6;
+      margin: 0;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .kodruta {
+      border: 2px solid var(--kant);
+      border-radius: 10px;
+      padding: .9rem 1rem;
+      background: var(--yta);
+      margin-bottom: 1rem;
+      opacity: .45;
+      transition: opacity .15s, border-color .15s;
+    }
+
+    .kodruta .rubrik {
+      font-weight: 800;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: .55rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+    }
+
+    .kodruta .status {
+      font-size: .72rem;
+      letter-spacing: .04em;
+    }
+
+    .aktiv {
+      opacity: 1;
+    }
+
+    #bas {
+      border-color: var(--orange);
+    }
+
+    #query .status::after {
+      content: "vilar";
+    }
+
+    #bas .status::after {
+      content: "gäller";
+    }
+
+    .fot {
+      font-size: .85rem;
+      opacity: .75;
+      max-width: 40rem;
+    }
+
+    /* ================================================================
+     ALLT HÄROVANFÖR ÄR BASEN. DEN GÄLLER I ALLA BREDDER.
+     HÄRUNDER LIGGER MEDIA QUERYN. DEN GÄLLER FRÅN 40rem OCH UPPÅT.
+     ================================================================ */
+    @media (min-width: 40rem) {
+      .lage-smal {
+        display: none;
+      }
+
+      .lage-bred {
+        display: inline-block;
+      }
+
+      .forklaring-smal {
+        display: none;
+      }
+
+      .forklaring-bred {
+        display: block;
+      }
+
+      .demo {
+        padding: 2rem;
+        border-style: solid;
+      }
+
+      .kort {
+        padding: 2rem;
+      }
+
+      .kort h2 {
+        font-size: 2rem;
+      }
+
+      .lankar li {
+        display: inline-block;
+        margin: 0 1.25rem 0 0;
+      }
+
+      #query {
+        border-color: var(--blue);
+      }
+
+      #query .status::after {
+        content: "gäller nu också";
+      }
+
+      #bas {
+        border-color: var(--kant);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sida">
+
+    <h1>Vad en media query gör</h1>
+    <p class="lead">Dra i fönstrets kant. Ingenting på den här sidan använder JavaScript för att ändra utseende. Allt du
+      ser ändras av en enda regel längst ner i CSS-filen.</p>
+
+    <div class="matare">
+      <span class="lage lage-smal">Smalt fönster</span>
+      <span class="lage lage-bred">Brett fönster</span>
+      <div class="siffror"><span id="px">–</span> px <span style="opacity:.45">·</span> <span id="rem">–</span> rem
+      </div>
+      <p class="forklaring-smal" style="margin:.4rem 0 0">Under 40rem. Bara basreglerna gäller. Media queryn finns i
+        filen men gör ingenting just nu.</p>
+      <p class="forklaring-bred" style="margin:.4rem 0 0">40rem och uppåt. Basreglerna gäller fortfarande, och media
+        queryn läggs ovanpå dem.</p>
+    </div>
+
+    <div class="demo">
+      <p class="etikett">Demokomponent</p>
+      <div class="kort">
+        <h2>Café Semikolon</h2>
+        <p>Samma HTML hela tiden. Bara CSS:en ändras.</p>
+        <ul class="lankar">
+          <li><a href="#">Meny</a></li>
+          <li><a href="#">Öppettider</a></li>
+          <li><a href="#">Nyhetsbrev</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="kodrutor">
+      <div class="kodruta aktiv" id="bas">
+        <div class="rubrik"><span>Basen</span><span class="status"></span></div>
+        <pre>.lankar li {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.kort {
+  padding: 1rem;
+}</pre>
+      </div>
+
+      <div class="kodruta aktiv" id="query">
+        <div class="rubrik"><span>Media queryn</span><span class="status"></span></div>
+        <pre>@media (min-width: 40rem) {
+
+  .lankar li {
+    display: inline-block;
+    margin: 0 1.25rem 0 0;
+  }
+
+  .kort {
+    padding: 2rem;
+  }
+
+}</pre>
+      </div>
+    </div>
+
+    <p class="fot">Lägg märke till tre saker. Media queryn tar aldrig bort något, den lägger till ovanpå. Basen är den
+      smala layouten, inte den breda. Och brytpunkten ligger där just den här layouten slutar se bra ut, inte vid någon
+      telefonmodells bredd.</p>
+
+  </div>
+
+  <script>
+    function uppdatera() {
+      var b = document.documentElement.clientWidth;
+      var rot = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      document.getElementById('px').textContent = b;
+      document.getElementById('rem').textContent = (b / rot).toFixed(1);
+    }
+    uppdatera();
+    window.addEventListener('resize', uppdatera);
+  </script>
+</body>
+
+</html>

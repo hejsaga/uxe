@@ -1,0 +1,294 @@
+/* Lösningsförslag steg 4. Samma sida som på onsdagen, nu med flexbox och grid.
+
+   Sex uppgifter, sex olika beteenden. Lägg märke till två saker när ni
+   jämför med er egen fil: media queryn har krympt till bara designval, och
+   ingenstans står det en bredd som gäller en viss skärmstorlek.
+
+   Det finns inte ett rätt svar. Uppgift 4 går att lösa med flexbox också, och
+   uppgift 3 går att lösa med grid. Motiveringen är viktigare än valet. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  color: #2b2f2f;
+}
+
+.toppen,
+.hero,
+.innehall,
+.botten {
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* UPPGIFT 2: sidhuvudet.
+   justify-content: space-between skjuter loggan och navigationen åt var sitt
+   håll. align-items: center ställer dem mitt för varandra i höjdled.
+   flex-wrap: wrap gör att de staplas när de inte får plats, i stället för att
+   tryckas ihop. Det sista är hela poängen: ingen media query bestämmer när
+   det sker, innehållet gör det själv.
+
+   gap: 0.5rem 1rem är två värden. Första gäller mellan rader, andra mellan
+   kolumner. */
+.toppen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.logga {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+/* UPPGIFT 1: länkarna.
+   Tre rader flexbox ersätter den regel som låg i media queryn. Skillnaden är
+   att den här gäller i alla bredder, och att länkarna bryter rad själva om
+   någon lägger till en fjärde sida i menyn. */
+.lankar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.lankar a {
+  color: #2b2f2f;
+}
+
+.hero {
+  background: #f8f9f9;
+  padding-block: 2.5rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.ingress {
+  max-width: 32rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.knapp {
+  display: inline-block;
+  background: #2b2f2f;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* UPPGIFT 6: innehållet.
+   I basen är det ett rutnät med en kolumn, alltså samma sak som förut.
+   Tvåkolumnsläget står i media queryn längst ner, för det är ett designval:
+   ingenting är trasigt utan det.
+
+   gap sköter avstånden, därför är margin-bottom borta från .block och
+   .sidoruta. */
+.innehall {
+  display: grid;
+  gap: 3rem;
+}
+
+.block {
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+/* UPPGIFT 4: menykorten.
+   repeat(auto-fit, minmax(15rem, 1fr)) läses så här: gör så många kolumner
+   som får plats, varje kolumn minst 15rem och högst en lika stor andel som
+   de andra. Webbläsaren räknar ut antalet, inte vi.
+
+   Jämförelsen mot gårdagens flex-lösning: lägg till ett fjärde kort. Med grid
+   hamnar det ensamt på rad två och är exakt lika brett som de andra. Med
+   flexbox växer det i stället ut och fyller hela raden själv. Grid håller
+   spalterna, flexbox fördelar överbliven plats.
+
+   height: 100% på kortet gör alla kort på samma rad lika höga. */
+.kortlista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.kort {
+  padding: 1rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  height: 100%;
+}
+
+.kort img {
+  background: #f8f9f9;
+  border-radius: 4px;
+  aspect-ratio: 3 / 2;
+}
+
+.kort p {
+  margin: 0 0 0.5rem;
+}
+
+/* UPPGIFT 5: öppettiderna.
+   En dl har dt och dd som direkta barn, så de går rakt in i ett rutnät.
+   max-content betyder att kolumnen blir precis så bred som det längsta
+   innehållet kräver, inte bredare. 1fr ger resten till tiderna.
+
+   Det här är typexemplet på när grid slår flexbox: två spalter som ska ligga
+   i linje över flera rader. Med flexbox hade varje dt och dd förhandlat för
+   sig och spalterna hade hoppat. */
+.tider {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1.5rem;
+}
+
+.tider dt {
+  font-weight: bold;
+}
+
+.tider dd {
+  margin: 0;
+}
+
+.sidoruta {
+  background: #f8f9f9;
+  padding: 1rem;
+  margin-bottom: 0;
+}
+
+.sidoruta h2 {
+  font-size: 1.25rem;
+}
+
+/* UPPGIFT 3: formuläret.
+   align-items: end gör att fältet och knappen står på samma baslinje trots
+   att de är olika höga.
+
+    Barnen skalar på tre olika sätt:
+    label   width: 100%    tar alltid en egen rad
+    input   flex: 1 1 14rem  växer, krymper, men bryter hellre rad än blir smalare än 14rem
+    button  flex-shrink: 0   krymper aldrig, texten får alltid plats */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.5rem;
+}
+
+label {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+input {
+  flex: 1 1 14rem;
+  max-width: 20rem;
+  padding: 0.5rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+}
+
+button {
+  flex-shrink: 0;
+  padding: 0.6rem 1.2rem;
+  background: #2b2f2f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #4c64ff;
+  outline-offset: 2px;
+}
+
+.botten {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  border-top: 1px solid #d4d4d4;
+}
+
+.botten p {
+  margin: 0;
+}
+
+/* Kvar av onsdagens media query: luft, rubrikstorlek och tvåspaltsläget från
+   uppgift 6. Inget av det lagar något, allt är designval.
+
+   grid-column: 1 / -1 betyder från första kolumnlinjen till den sista, alltså
+   hela bredden. Menyn och nyhetsbrevet tar en hel rad var, och då hamnar
+   öppettiderna och sidorutan bredvid varandra på raden mellan dem.
+   
+    Och en sak som inte är syntax men som lurar många första gången: när ni sätter
+    `gap` på en container ska gamla `margin` på barnen bort. Annars räknas avståndet
+    två gånger och raderna blir ojämna. Det ser ut som att ert rutnät är trasigt,
+    men det är marginalerna. */
+@media (min-width: 40rem) {
+
+  .toppen,
+  .hero,
+  .innehall,
+  .botten {
+    padding-inline: 2rem;
+  }
+
+  .innehall {
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem 2rem;
+  }
+
+  #meny,
+  #nyhetsbrev {
+    grid-column: 1 / -1;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}

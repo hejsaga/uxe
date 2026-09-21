@@ -1,0 +1,272 @@
+/* Sidan är färdigformgiven, med ett undantag: två tillstånd saknas.
+   Leta efter den stora kommentaren längre ner. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 4.25rem 1rem 6rem;
+  font-family: "Sofia Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #2b2f2f;
+  background-color: #f8f9f9;
+}
+
+/* Navigering */
+
+.topbar {
+  /* fixed gör att den ligger kvar högst upp när man scrollar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #2b2f2f;
+  color: #ffffff;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  /* Ingen max-width: navigeringen går kant till kant över hela sidan */
+  padding: 0.8rem 1.5rem;
+}
+
+.logo {
+  font-family: "Sofia Sans Condensed", "Sofia Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  /* margin-left: auto knuffar länkarna till höger */
+  margin: 0 0 0 auto;
+  padding: 0;
+  font-size: 0.9375rem;
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #d4d4d4;
+  text-decoration: none;
+  padding: 0.2rem 0;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.nav-links a:focus-visible {
+  outline: 3px solid #6ec4e4;
+  outline-offset: 3px;
+}
+
+.count {
+  min-width: 1.4rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  background-color: #3d4242;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-align: center;
+  color: #d4d4d4;
+}
+
+.count.has-items {
+  background-color: #ff7890;
+  color: #2b2f2f;
+}
+
+/* Sidhuvud */
+
+main {
+  max-width: 54rem;
+  margin: 0 auto;
+}
+
+.page-header {
+  padding: 2.75rem 0 1.5rem;
+}
+
+.page-header h1 {
+  font-family: "Sofia Sans Condensed", "Sofia Sans", sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Listan */
+
+.tracklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #d4d4d4;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.track-text {
+  /* flex: 1 gör att texten tar upp all plats som blir över.
+     min-width: 0 låter den krympa i stället för att spränga raden,
+     vilket behövs för den långa låttiteln. */
+  flex: 1;
+  min-width: 0;
+}
+
+.track-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.track-artist {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #5c6161;
+}
+
+.track-time {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #5c6161;
+}
+
+/* ------------------------------------------------------------------
+   HÄR SAKNAS TVÅ TILLSTÅND
+
+   .track.playing        låten som spelas just nu
+   .like-button.liked    en låt du gillat
+
+   Din JavaScript kommer sätta klasserna. Ingen har bestämt hur de
+   ska se ut. Det gör du. Se UPPGIFT.md, steg 3 och 5.
+   ------------------------------------------------------------------ */
+
+/* Knappar */
+
+button {
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid #2b2f2f;
+  background-color: transparent;
+  color: #2b2f2f;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid #6ec4e4;
+  outline-offset: 2px;
+}
+
+.like-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-color: #d4d4d4;
+  color: #5c6161;
+}
+
+/* Hjärtat är en SVG. Den ritas med en linje (stroke) och
+   är ofylld (fill: none). currentColor betyder samma färg
+   som texten i knappen. */
+.like-button svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.like-button:hover {
+  border-color: #ff7890;
+  color: #ff7890;
+}
+
+.play-button {
+  /* min-width gör att knappen inte hoppar när texten
+     byter mellan Spela och Pausa */
+  min-width: 6rem;
+  padding: 0.5rem 1.1rem;
+  background-color: #2b2f2f;
+  color: #ffffff;
+}
+
+.play-button:hover {
+  background-color: #444a4a;
+}
+
+/* Spelaren */
+
+.player {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  background-color: #2b2f2f;
+  color: #ffffff;
+}
+
+.player-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 54rem;
+  margin: 0 auto;
+}
+
+#now-playing {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* Mindre skärmar */
+
+@media (max-width: 34rem) {
+  .nav-inner {
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.6rem;
+  }
+
+  .track-time {
+    display: none;
+  }
+}

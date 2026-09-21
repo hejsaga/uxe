@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Loopen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600&family=Sofia+Sans+Condensed:wght@600;700&display=swap">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!--
+  Här ska din JavaScript-fil länkas in.
+  Se UPPGIFT.md, steg 1.
+-->
+</head>
+
+<body>
+
+  <header class="topbar">
+    <nav class="nav-inner" aria-label="Huvudmeny">
+      <a class="logo" href="#">Loopen</a>
+      <ul class="nav-links">
+        <li><a href="#">Spellistor</a></li>
+        <li><a href="#">Bibliotek</a></li>
+        <li>
+          <a href="#">Gillade <span class="count" id="liked-count" aria-live="polite">0</span></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="page-header">
+      <h1>Spellista</h1>
+    </div>
+
+    <ul class="tracklist">
+      <li class="track" id="track-1" data-duration="331">
+        <div class="track-text">
+          <h2 class="track-title">Enter Sandman</h2>
+          <p class="track-artist">Metallica</p>
+        </div>
+        <p class="track-time">5:31</p>
+        <button class="like-button" id="like-1" type="button" aria-pressed="false" aria-label="Gilla Enter Sandman">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 20.5 4.2 12.9a4.7 4.7 0 0 1 0-6.7 4.7 4.7 0 0 1 6.7 0l1.1 1.1 1.1-1.1a4.7 4.7 0 0 1 6.7 0 4.7 4.7 0 0 1 0 6.7z"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="play-button" id="play-1" type="button" aria-pressed="false">Spela</button>
+      </li>
+
+      <li class="track" id="track-2" data-duration="203">
+        <div class="track-text">
+          <h2 class="track-title">Levitating</h2>
+          <p class="track-artist">Dua Lipa</p>
+        </div>
+        <p class="track-time">3:23</p>
+        <button class="like-button" id="like-2" type="button" aria-pressed="false" aria-label="Gilla Levitating">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 20.5 4.2 12.9a4.7 4.7 0 0 1 0-6.7 4.7 4.7 0 0 1 6.7 0l1.1 1.1 1.1-1.1a4.7 4.7 0 0 1 6.7 0 4.7 4.7 0 0 1 0 6.7z"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="play-button" id="play-2" type="button" aria-pressed="false">Spela</button>
+      </li>
+
+      <li class="track" id="track-3" data-duration="211">
+        <div class="track-text">
+          <h2 class="track-title">I'm Like a Lawyer with the Way I'm Always Trying to Get You Off (Me &amp; You)</h2>
+          <p class="track-artist">Fall Out Boy</p>
+        </div>
+        <p class="track-time">3:31</p>
+        <button class="like-button" id="like-3" type="button" aria-pressed="false"
+          aria-label="Gilla I'm Like a Lawyer with the Way I'm Always Trying to Get You Off">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 20.5 4.2 12.9a4.7 4.7 0 0 1 0-6.7 4.7 4.7 0 0 1 6.7 0l1.1 1.1 1.1-1.1a4.7 4.7 0 0 1 6.7 0 4.7 4.7 0 0 1 0 6.7z"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="play-button" id="play-3" type="button" aria-pressed="false">Spela</button>
+      </li>
+
+      <li class="track" id="track-4" data-duration="177">
+        <div class="track-text">
+          <h2 class="track-title">HUMBLE.</h2>
+          <p class="track-artist">Kendrick Lamar</p>
+        </div>
+        <p class="track-time">2:57</p>
+        <button class="like-button" id="like-4" type="button" aria-pressed="false" aria-label="Gilla HUMBLE.">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 20.5 4.2 12.9a4.7 4.7 0 0 1 0-6.7 4.7 4.7 0 0 1 6.7 0l1.1 1.1 1.1-1.1a4.7 4.7 0 0 1 6.7 0 4.7 4.7 0 0 1 0 6.7z"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="play-button" id="play-4" type="button" aria-pressed="false">Spela</button>
+      </li>
+    </ul>
+
+  </main>
+
+  <footer class="player">
+    <div class="player-inner">
+      <p id="now-playing">Ingenting spelas just nu</p>
+    </div>
+  </footer>
+
+</body>
+</html>

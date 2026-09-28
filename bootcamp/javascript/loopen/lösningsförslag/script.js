@@ -1,7 +1,5 @@
 /* Loopen, lösningsförslag.
-   Skrivet med det ni har sett: querySelector, addEventListener,
-   textContent, classList, setAttribute, const och let, if och else.
-   Inga arrayer och inga loopar. Det kommer nästa vecka. */
+  Skrivet med det ni har sett: querySelector, addEventListener, textContent, classList, setAttribute, const och let, if och else. */
 
 /* Elementen utanför listan */
 const likedCountText = document.querySelector("#liked-count");
@@ -27,8 +25,7 @@ const likeButton4 = document.querySelector("#like-4");
 let nowPlayingTitle = "";
 let likedCount = 0;
 
-/* En enda funktion som skriver ut tillståndet. Allt annat ändrar
-   bara variablerna och ber den här rita om. */
+/* En enda funktion som skriver ut tillståndet. Allt annat ändrar bara variablerna och ber den här rita om. */
 function updateStatusText() {
   if (nowPlayingTitle === "") {
     nowPlayingText.textContent = "Ingenting spelas just nu";
@@ -75,8 +72,7 @@ function togglePlayback(track, playButton) {
     track.classList.add("playing");
     playButton.textContent = "Pausa";
     playButton.setAttribute("aria-pressed", "true");
-    /* Titeln står redan i HTML. Hämta den därifrån i stället för
-       att skriva samma text en gång till. */
+    /* Titeln står redan i HTML. Hämta den därifrån i stället för att skriva samma text en gång till. */
     nowPlayingTitle = track.querySelector(".track-title").textContent;
   }
 
@@ -97,8 +93,7 @@ function toggleTrackLike(likeButton) {
 }
 
 /* Koppla knapparna.
-   Fyra nästan identiska block. Det är avsiktligt, och den irritationen
-   är precis vad som gör loopar meningsfulla nästa vecka. */
+  Fyra nästan identiska block. Det är avsiktligt, och den irritationen är precis vad som gör loopar meningsfulla. */
 
 playButton1.addEventListener("click", function () {
   togglePlayback(track1, playButton1);

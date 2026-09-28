@@ -5,7 +5,7 @@
 
 /* Elementen utanför listan */
 const likedCountText = document.querySelector("#liked-count");
-const playerText = document.querySelector("#now-playing");
+const nowPlayingText = document.querySelector("#now-playing");
 
 /* Låtarna */
 const track1 = document.querySelector("#track-1");
@@ -24,16 +24,16 @@ const likeButton3 = document.querySelector("#like-3");
 const likeButton4 = document.querySelector("#like-4");
 
 /* Sidans tillstånd. Sidan minns ingenting själv, så vi minns åt den. */
-let currentTitle = "";
+let nowPlayingTitle = "";
 let likedCount = 0;
 
 /* En enda funktion som skriver ut tillståndet. Allt annat ändrar
    bara variablerna och ber den här rita om. */
-function renderPage() {
-  if (currentTitle === "") {
-    playerText.textContent = "Ingenting spelas just nu";
+function updateStatusText() {
+  if (nowPlayingTitle === "") {
+    nowPlayingText.textContent = "Ingenting spelas just nu";
   } else {
-    playerText.textContent = "Spelar nu: " + currentTitle;
+    nowPlayingText.textContent = "Spelar nu: " + nowPlayingTitle;
   }
 
   likedCountText.textContent = likedCount;
@@ -46,7 +46,7 @@ function renderPage() {
 }
 
 /* Bara en låt kan spelas åt gången, så vi släcker alla först. */
-function resetAllPlayButtons() {
+function stopAllTracks() {
   track1.classList.remove("playing");
   track2.classList.remove("playing");
   track3.classList.remove("playing");
@@ -63,28 +63,28 @@ function resetAllPlayButtons() {
   playButton4.setAttribute("aria-pressed", "false");
 }
 
-function togglePlay(track, button) {
+function togglePlayback(track, playButton) {
   /* Spelade den redan? Då är klicket en paus. */
   const isPlaying = track.classList.contains("playing");
 
-  resetAllPlayButtons();
+  stopAllTracks();
 
   if (isPlaying) {
-    currentTitle = "";
+    nowPlayingTitle = "";
   } else {
     track.classList.add("playing");
-    button.textContent = "Pausa";
-    button.setAttribute("aria-pressed", "true");
+    playButton.textContent = "Pausa";
+    playButton.setAttribute("aria-pressed", "true");
     /* Titeln står redan i HTML. Hämta den därifrån i stället för
        att skriva samma text en gång till. */
-    currentTitle = track.querySelector(".track-title").textContent;
+    nowPlayingTitle = track.querySelector(".track-title").textContent;
   }
 
-  renderPage();
+  updateStatusText();
 }
 
-function toggleLike(button) {
-  const isLiked = button.classList.toggle("liked");
+function toggleTrackLike(likeButton) {
+  const isLiked = likeButton.classList.toggle("liked");
 
   if (isLiked) {
     likedCount = likedCount + 1;
@@ -92,8 +92,8 @@ function toggleLike(button) {
     likedCount = likedCount - 1;
   }
 
-  button.setAttribute("aria-pressed", isLiked);
-  renderPage();
+  likeButton.setAttribute("aria-pressed", isLiked);
+  updateStatusText();
 }
 
 /* Koppla knapparna.
@@ -101,34 +101,33 @@ function toggleLike(button) {
    är precis vad som gör loopar meningsfulla nästa vecka. */
 
 playButton1.addEventListener("click", function () {
-  togglePlay(track1, playButton1);
+  togglePlayback(track1, playButton1);
 });
 
 playButton2.addEventListener("click", function () {
-  togglePlay(track2, playButton2);
+  togglePlayback(track2, playButton2);
 });
 
 playButton3.addEventListener("click", function () {
-  togglePlay(track3, playButton3);
+  togglePlayback(track3, playButton3);
 });
 
 playButton4.addEventListener("click", function () {
-  togglePlay(track4, playButton4);
+  togglePlayback(track4, playButton4);
 });
 
 likeButton1.addEventListener("click", function () {
-  toggleLike(likeButton1);
+  toggleTrackLike(likeButton1);
 });
 
 likeButton2.addEventListener("click", function () {
-  toggleLike(likeButton2);
+  toggleTrackLike(likeButton2);
 });
 
 likeButton3.addEventListener("click", function () {
-  toggleLike(likeButton3);
+  toggleTrackLike(likeButton3);
 });
 
 likeButton4.addEventListener("click", function () {
-  toggleLike(likeButton4);
+  toggleTrackLike(likeButton4);
 });
-

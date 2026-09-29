@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Att göra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;600&family=Sofia+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <main class="app">
+
+    <header class="app-header">
+      <h1>Att göra</h1>
+      <p class="status" id="status"></p>
+    </header>
+
+    <form class="add-form" id="add-form">
+      <label for="new-task" class="visually-hidden">Ny uppgift</label>
+      <input type="text" id="new-task" placeholder="Vad behöver göras?" autocomplete="off">
+      <button type="submit">Lägg till</button>
+    </form>
+
+    <ul class="task-list" id="task-list">
+      <!-- Här ska det inte stå något. Listan ritas ut av JavaScript. -->
+    </ul>
+
+  </main>
+
+</body>
+</html>

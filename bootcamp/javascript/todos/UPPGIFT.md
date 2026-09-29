@@ -23,7 +23,7 @@ En avklarad uppgift får klassen `done` på `<li>`: `<li class="task done">`.
 
 ## Steg 1: titta på arrayen
 
-Skriv `console.log(tasks)` och öppna konsolen. Skriv sedan ut bara texten i den första uppgiften, och bara om den är klar eller inte.
+Skriv `console.log(tasks)` och öppna konsolen. Skriv ut texten i den första uppgiften, och om den är klar eller inte.
 
 Tips: `tasks[0]` är det första objektet. Hur kommer du åt `text` i det?
 

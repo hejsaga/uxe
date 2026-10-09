@@ -1,0 +1,165 @@
+/* Att göra, stilar.
+
+   Sidan är färdigformgiven så att du kan lägga hela tisdagen på
+   JavaScript. Din kod ska bygga markupen som står i UPPGIFT.md,
+   så hittar CSS:en rätt av sig själv.
+
+   Sidan är byggd för en stor skärm. Öppna den på mobilen och se
+   vad som händer. Det tar vi hand om på torsdag. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f8f9f9;
+  color: #2b2f2f;
+  font-family: "Sofia Sans", system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.app {
+  width: 38rem;
+  margin: 5rem auto;
+}
+
+/* Rubrik och status */
+
+.app-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Sofia Sans Condensed", "Sofia Sans", sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.status {
+  margin: 0;
+  color: #5c6161;
+}
+
+/* Formuläret */
+
+.add-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+
+.add-form input {
+  width: 28rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #d4d4d4;
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+}
+
+.add-form input:focus {
+  border-color: #4c64ff;
+  outline: none;
+}
+
+.add-form button {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  background: #2b2f2f;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-form button:hover {
+  background: #4c64ff;
+}
+
+/* Listan */
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.task label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.task input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  accent-color: #2b2f2f;
+  cursor: pointer;
+}
+
+/* En avklarad uppgift. Din JavaScript sätter klassen .done på <li>. */
+
+.task.done {
+  border-left: 4px solid #afd75e;
+  padding-left: 0.75rem;
+}
+
+.task.done .task-text {
+  color: #5c6161;
+  text-decoration: line-through;
+}
+
+/* Ta bort-knappen, om du hinner mer */
+
+.remove-button {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background: none;
+  color: #5c6161;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  color: #2b2f2f;
+  text-decoration: underline;
+}
+
+/* Tangentbordsfokus */
+
+button:focus-visible,
+input[type="checkbox"]:focus-visible {
+  outline: 3px solid #4c64ff;
+  outline-offset: 2px;
+}
+
+/* Syns inte, men läses upp av skärmläsare */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
